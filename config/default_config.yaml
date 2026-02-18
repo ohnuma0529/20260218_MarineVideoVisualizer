@@ -1,0 +1,35 @@
+# MarineVideoVisualizer Default Configuration
+
+# Detector Settings
+detector:
+  backend: "yolo" # "yolo" or "gdino"
+  model_path: "detect/all.pt"
+  conf_thresh: 0.6
+  # GroundingDINO specific
+  gdino_config: "/home/ohnuma/Marine/20251118_DetectRecog/third_party/GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py"
+  gdino_model: "/home/ohnuma/Marine/20251118_DetectRecog/third_party/GroundingDINO/weights/groundingdino_swint_ogc.pth"
+
+# Segmentor Settings
+segmentor:
+  backend: "yoloseg" # "yoloseg" or "sam"
+  model_path: "seg/best.pt"
+  sam_model: "sam2.1_l.pt"
+
+# Classifier Settings
+classifier:
+  model_path: "recog_onnx/swin_t_arcface.onnx" # ONNX model preferred
+  target_filter: "jp" # "all" or "jp"
+  target_list_path: "recog/info/shigen_target.csv"
+
+# Visualization Settings
+visualization:
+  mask_alpha: 120
+  mode: "all" # "all" or "fps1"
+  sample_fps: 1
+  highlight_species: "マダイ" # Species to draw in RED, others BLUE
+
+# Output Settings
+output:
+  base_dir: "outputs"
+  save_frames: true # Save all annotated frames as JPG by default
+  save_video: true

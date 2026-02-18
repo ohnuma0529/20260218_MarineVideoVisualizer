@@ -1,0 +1,10 @@
+torch
+torchvision
+ultralytics
+onnxruntime-gpu
+pandas
+PyYAML
+opencv-python
+Pillow
+tqdm
+numpy
